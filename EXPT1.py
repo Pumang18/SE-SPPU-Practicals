@@ -141,13 +141,13 @@ while(flag==1):
             flag = 0
             print("Thanks for using this program!")
     elif(ch==5):
-        flag==0
-        print("Thank You")
-else:
-    print("Wrong Choice!")
-    a=input("\n\nDo you want to continue (yes/no) :")
-    if a=="yes":
-        flag=1
-    else:
         flag=0
-        print("Thanks for using this program!")
+        print("Thank You")
+    else:
+        print("Wrong Choice!")
+        a=input("\n\nDo you want to continue (yes/no) :")
+        if a=="yes":
+            flag=1
+        else:
+            flag=0
+            print("Thanks for using this program!")
