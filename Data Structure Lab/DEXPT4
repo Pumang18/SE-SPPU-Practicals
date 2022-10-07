@@ -1,0 +1,69 @@
+'''Write a python program to maintain club members, sort on roll numbers in ascending
+order. Write function “Ternary_Search” to search whether particular student is member
+of club or not. Ternary search is modified binary search that divides array into 3 halves
+instead of two'''
+
+
+n=int(input("Enter Total Count: "))
+roll=[]
+for i in range(0,n):
+    rollno=int(input("Enter Roll Number of Student: "))
+    roll.append(rollno)
+print("Members Of Club :",roll)
+
+key=int(input("Enter Roll No. That  you want to Search::: "))
+
+def insort(list):
+    for i in range(0,len(list)):
+        k=list[i]
+        j=i-1
+
+        while j>=0 and k<list[j]:
+            list[j+1]=list[j]
+            j=j-1
+        list[j+1]=k
+    return list
+print("Your Sorted List is:: ",insort(roll))
+sorted=insort(roll)
+
+def terSearch(l,r,key,sorted):
+    
+    if (r >= l):
+  
+       
+        mid1 = l + (r - l) //3
+        mid2 = r - (r - l) //3
+  
+        
+        if (sorted[mid1] == key): 
+            return True
+          
+        if (sorted[mid2] == key): 
+            return True
+        if (key < sorted[mid1]): 
+  
+            return terSearch(l, mid1 - 1, key, sorted)
+          
+        elif (key > sorted[mid2]): 
+             
+            return terSearch(mid2 + 1, r, key, sorted)
+          
+        else: 
+  
+           
+            return terSearch(mid1 + 1, mid2 - 1, key, sorted)
+    return -1
+
+l=0
+r=len(sorted)-1
+mid1=l+((r-l)/3)
+mid2=r-((r-l)/3)
+p = terSearch(l, r, key, sorted)
+  
+if p==True:
+    print(key,"is Member of Club")
+else:
+    print("Sorry!",key,"is Not a Member of Club")
+
+
+
