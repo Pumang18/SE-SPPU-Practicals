@@ -1,0 +1,58 @@
+"""
+Write a python program to compute following computation on matrix:
+a) Addition of two matrices
+b) Subtraction of two matrices
+c) Multiplication of two matrices 
+d) Transpose of a matrix
+"""
+
+import numpy as np 
+
+
+r1=int(input("Enter No. of ROWS for 1st matrix:"))
+c1=int(input("Enter No.of COLUMNS for 1st matrix:"))
+
+print("Enter Entries Row wise by placing space::")
+m1 = list(map(int, input().split()))
+matrix1 = np.array(m1).reshape(r1, c1)
+
+print(matrix1)
+
+
+r2=int(input("Enter No. of ROWS for 2nd matrix:"))
+c2=int(input("Enter No.of COLUMNS for 2nd matrix:"))
+print("Enter Entries Row wise by placing space::")
+
+m2 = list(map(int, input().split()))
+matrix2 = np.array(m2).reshape(r2, c2)
+
+print(matrix2)
+
+
+def add():
+    return np.add(matrix1,matrix2)
+
+print("Addition is:\n",add())
+
+def sub():
+    return np.subtract(matrix1,matrix2)
+
+print("Substraction is:\n",sub())
+
+def mult():
+    return np.multiply(matrix1,matrix2)
+
+print("Multiplicatio is:\n",mult())
+
+def trans():
+    print("Which Matrix You want to teanspose:")
+    t=int(input("For Matrix 1::Press 1 \n For Matrix 2::Press 2\n"))
+    if t==1:
+        return matrix1.T
+    elif t==2:
+        return matrix2.T
+    else:
+        print("Sorry!,You Have Entered Wrong Choice.")
+print("Transpose is:\n",trans())
+
+
